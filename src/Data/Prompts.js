@@ -4,7 +4,7 @@ export const Prompts = [
 		area: "Transportation",
 		category: "Private",
 		type: "negative",
-		question: "How many miles a week do you drive or Uber?",
+		question: "How many miles a week do you drive a car or use Uber?",
 		answers: ["0", "< 20", "20 - 60", "60 - 100", "100+"],
 		score: 0,
 	},
