@@ -7,13 +7,29 @@ function Survey() {
     const [displayIndex, setDisplayIndex] = useState(1)
     const [questionDisplayed, setQuestionDisplayed] = useState(Prompts[1].question)
     const [answersDisplayed, setAnswersDisplayed] = useState(Prompts[1].answers)
+    const [results, setResults] = useState([])
 
     useEffect (() => {
         setQuestionDisplayed(Prompts[displayIndex].question)
         setAnswersDisplayed(Prompts[displayIndex].answers)
     }, [displayIndex, questionDisplayed, answersDisplayed])
 
-    console.log(Prompts[displayIndex])
+    const handleSubmit = (userScore) => {
+        const score = Prompts[displayIndex].type === "negative" ? userScore * -1 : userScore
+
+        setResults([
+            ...results,
+            {
+                id: Prompts[displayIndex].id,
+                area: Prompts[displayIndex].area,
+                category: Prompts[displayIndex].category,
+                type: Prompts[displayIndex].type,
+                score: score
+            } 
+        ])
+        setDisplayIndex(displayIndex + 1)
+        console.log(results)
+    }
 
     return (
         <div>
