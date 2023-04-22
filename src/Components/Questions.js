@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Questions = ({ question, answers}) => {
 	return (
-		<div className='mx-auto border-4 border-black'>
+		<div className='m-4'>
 			<div>{question}</div>
 			{answers.map((answer) => (
 				<div>

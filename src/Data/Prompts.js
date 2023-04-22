@@ -5,7 +5,8 @@ export const Prompts = [
 		category: "Private",
 		type: "negative",
 		question: "How many miles a week do you drive or Uber?",
-		answers: ["0", "< 20", "20 - 60", "60 - 100", "100+"]
+		answers: ["0", "< 20", "20 - 60", "60 - 100", "100+"],
+		score: 0,
 	},
 	{
 		id: 2,
@@ -13,7 +14,8 @@ export const Prompts = [
 		category: "Public",
 		type: "negative",
 		question: "How many miles do you travel each week by public transport?",
-		answers: ["0", "< 20", "20 - 60", "60 - 100", "100+"]
+		answers: ["0", "< 20", "20 - 60", "60 - 100", "100+"],
+		score: 0,
 	},
 	{
 		id: 3,
@@ -21,7 +23,8 @@ export const Prompts = [
 		category: "Public",
 		type: "negative",
 		question: "How many hours do you fly by plane each year?",
-		answers: ["0", "< 10", "10 - 30", "30 - 60", "60+"]
+		answers: ["0", "< 10", "10 - 30", "30 - 60", "60+"],
+		score: 0,
 	},
 	{
 		id: 4,
@@ -29,7 +32,8 @@ export const Prompts = [
 		category: "Non-Emittable",
 		type: "positive",
 		question: "How many miles a week do you get around by walking, biking, etc..?",
-		answers: ["0", "< 20", "20 - 60", "60 - 100", "100+"]
+		answers: ["0", "< 20", "20 - 60", "60 - 100", "100+"],
+		score: 0,
 	},
 	{
 		id: 5,
@@ -37,7 +41,8 @@ export const Prompts = [
 		category: "Electrical",
 		type: "negative",
 		question: "How many hours per day do you watch tv?",
-		answers: ["0", "1 - 6", "7 - 12", "13 - 19", "20+"]
+		answers: ["0", "1 - 6", "7 - 12", "13 - 19", "20+"],
+		score: 0,
 	},
 	{
 		id: 6,
@@ -45,7 +50,8 @@ export const Prompts = [
 		category: "Electrical",
 		type: "negative",
 		question: "How many hours a day are your lightbulbs in use?",
-		answers: ["0", "1 - 6", "7 - 12", "13 - 19", "20+"]
+		answers: ["0", "1 - 6", "7 - 12", "13 - 19", "20+"],
+		score: 0,
 	},
 	{
 		id: 7,
@@ -53,7 +59,8 @@ export const Prompts = [
 		category: "Water",
 		type: "negative",
 		question: "How many times a week do you use a dishwasher?",
-		answers: ["0", "1 - 2", "3 - 4", "5 - 6", "7+"]
+		answers: ["0", "1 - 2", "3 - 4", "5 - 6", "7+"],
+		score: 0,
 	},
 	{
 		id: 8,
@@ -61,7 +68,8 @@ export const Prompts = [
 		category: "Water",
 		type: "negative",
 		question: "How many times a week do you take baths or showers?",
-		answers: ["0", "1 - 5", "6 - 10", "11 - 14", "15+"]
+		answers: ["0", "1 - 5", "6 - 10", "11 - 14", "15+"],
+		score: 0,
 	},
 	{
 		id: 9,
@@ -69,7 +77,8 @@ export const Prompts = [
 		category: "Water",
 		type: "negative",
 		question: "How many times a week do you use a washer and dryer?",
-		answers: ["0", "1 - 2", "3 - 4", "5 - 6", "7+"]
+		answers: ["0", "1 - 2", "3 - 4", "5 - 6", "7+"],
+		score: 0,
 	},
 	{
 		id: 10,
@@ -77,7 +86,8 @@ export const Prompts = [
 		category: "Renewable",
 		type: "positive",
 		question: "What percentage of your appliances are energy efficient or energy saving?",
-		answers: ["0", "<25%", "25 - 50%", "50 - 75%", "75 - 100%"]
+		answers: ["0", "<25%", "25 - 50%", "50 - 75%", "75 - 100%"],
+		score: 0,
 	},
 	{
 		id: 11,
@@ -85,7 +95,8 @@ export const Prompts = [
 		category: "Renewable",
 		type: "positive",
 		question: "What percentage of your appliances use renewable energy?",
-		answers: ["0", "<25%", "25 - 50%", "50 - 75%", "75 - 100%"]
+		answers: ["0", "<25%", "25 - 50%", "50 - 75%", "75 - 100%"],
+		score: 0,
 	},
 	{
 		id: 12,
@@ -93,7 +104,8 @@ export const Prompts = [
 		category: "Renewable",
 		type: "negative",
 		question: "How much meat do you eat each week?",
-		answers: ["Never", "Once in a while", "Some days", "Most days", "All the time"]
+		answers: ["Never", "Once in a while", "Some days", "Most days", "All the time"],
+		score: 0,
 	},
 	{
 		id: 13,
@@ -101,7 +113,8 @@ export const Prompts = [
 		category: "Renewable",
 		type: "positive",
 		question: "How much of your food is locally sourced?",
-		answers: ["None", "Some", "Half", "Most", "All"]
+		answers: ["None", "Some", "Half", "Most", "All"],
+		score: 0,
 	},
 	{
 		id: 14,
@@ -109,7 +122,8 @@ export const Prompts = [
 		category: "Renewable",
 		type: "positive",
 		question: "How do you recycle plastic waste?",
-		answers: ["I throw it in the garbage", "I sometimes recycle", "I always recycle", "I reuse my items", "I never use plastic products"]
+		answers: ["I throw it in the garbage", "I sometimes recycle", "I always recycle", "I reuse my items", "I never use plastic products"],
+		score: 0,
 	},
 	{
 		id: 15,
@@ -117,7 +131,8 @@ export const Prompts = [
 		category: "Renewable",
 		type: "positive",
 		question: "Do you compost?",
-		answers: ["No", null, null, null,"Yes"]
+		answers: ["No", null, null, null,"Yes"],
+		score: 0,
 	},
 	{
 		id: 16,
@@ -125,7 +140,8 @@ export const Prompts = [
 		category: "Renewable",
 		type: "positive",
 		question: "Do you use reusable grocery bags?",
-		answers: ["Never", null, "Sometimes", null, "Always"]
+		answers: ["Never", null, "Sometimes", null, "Always"],
+		score: 0,
 	}
 ]
 
