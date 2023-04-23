@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useState } from 'react';
 import NavBar from "./Components/NavBar";
+import Header from "./Components/Header";
 import Home from "./Pages/Home"
 import Survey from "./Pages/Survey"
 import Solutions from "./Pages/Solutions"
@@ -11,7 +12,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar />
+        {/* <NavBar /> */}
+        <Header />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
