@@ -49,8 +49,10 @@ function Survey() {
                         category={question.area}
                         setUserInput={setUserInput}
                     />
-                </> 
-                : null
+                </>
+                : <h1>
+                    Thank you for taking our survey. Submit to see your results.
+                </h1>
             }
 
             {displayIndex < Prompts.length
