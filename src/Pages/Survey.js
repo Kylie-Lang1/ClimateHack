@@ -6,7 +6,8 @@ import Prompts from '../Data/Prompts';
 function Survey({ results, setResults }) {
     const [displayIndex, setDisplayIndex] = useState(0)
     const [question, setQuestion] = useState(Prompts[0])
-    const [userInput, setUserInput] = useState({})
+    const [userInput, setUserInput] = useState()
+    const [error, setError] = useState()
 
     const navigate = useNavigate()
 
@@ -15,6 +16,11 @@ function Survey({ results, setResults }) {
     }, [displayIndex])
 
     const handleNext = (userInput) => {
+        if (!userInput) {
+            setError("Please select an answer")
+            return
+        } else {
+            setError(null)
         const question = Prompts[displayIndex]
         const score = question.type === "negative" ? userInput.score * question.severity * -1 : userInput.score * question.severity
 
@@ -31,6 +37,8 @@ function Survey({ results, setResults }) {
             }
         ])
         setDisplayIndex(displayIndex + 1)
+        setUserInput()
+        }
     }
 
     const handleSubmit = () => {
@@ -54,9 +62,10 @@ function Survey({ results, setResults }) {
                     : <div>Thank you for taking our survey!</div>
                 }
                 <div className="grid justify-items-center">
+                    {error && <div className="text-red-500">{error}</div>}
                     {displayIndex < Prompts.length
-                        ? <button className="border-2 w-20 rounded-lg my-5" onClick={() => {handleNext(userInput)}}>Next</button>
-                        : <button className="border-2 w-20 rounded-lg my-5" onClick={() => {handleSubmit()}}>Submit</button>
+                        ? <button className="border-2 w-20 rounded-lg my-3" onClick={() => {handleNext(userInput)}}>Next</button>
+                        : <button className="border-2 w-20 rounded-lg my-3" onClick={() => {handleSubmit()}}>Submit</button>
                     }
                 </div>
             </div>

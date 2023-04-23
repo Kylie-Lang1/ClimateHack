@@ -8,7 +8,7 @@ export const Questions = ({ question, answers, category, setUserInput}) => {
 	}
 
 	return (
-		<div className='w-3/4 m-auto border'>
+		<div className='w-3/4 m-auto border mb-2'>
 			<p className="text-center font-bold pb-3 pt-5">Category: {category}</p>
 			<div className="w-3/4 m-auto pb-2">{question}</div>
 			<div className="w-3/4 m-auto pl-10 pb-5">
