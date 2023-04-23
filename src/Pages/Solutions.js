@@ -1,18 +1,20 @@
 import { useNavigate } from 'react-router-dom';
+// import { Slider } from '../Components/Slider';
+import { Slider } from '../Components/Slider';
 
 function Solutions({ results }) {
     const navigate = useNavigate()
 
     return (
-        <div className="w-2/3 m-auto border py-10 my-16">
+        <div className="w-5/6 m-auto border py-10 my-16">
             { results.length
                 ? <>
-                    <table className="w-3/4 m-auto">
+                    <table className="w-5/6 m-auto">
                         <thead>
                             <tr>
-                                <th >Prompt</th>
+                                <th>Prompt</th>
                                 <th>Answer</th>
-                                <th className="ml-3">Score</th>
+                                <th>Score</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -22,7 +24,8 @@ function Solutions({ results }) {
                                         <tr key={result.id}>
                                             <td>{result.question}</td>
                                             <td className="text-center">{result.answer}</td>
-                                            <td className={result.score >= 0 ? 'text-green-600 text-right' : 'text-red-600 text-right'}>{result.score}</td>
+                                            
+                                            <td className={result.score >= 0 ? 'text-green-600 text-left' : 'text-red-600 text-left'}><Slider score={result.score} /></td>
                                         </tr>
                                     )
                                 })
