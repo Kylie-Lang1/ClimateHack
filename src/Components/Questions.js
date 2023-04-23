@@ -11,15 +11,17 @@ export const Questions = ({ question, answers, category, setUserInput}) => {
 			<div className="w-3/4 m-auto pb-2">{question}</div>
 			<div className="w-3/4 m-auto pl-10 pb-5">
 				{answers.map((answer) => (
-					<div>
- 					<input type="radio"
-						id={answer}
-						name={question}
-						value={answers.indexOf(answer)}
-						onChange={handleInputChange}
-					/>
-					<label>{answer}</label>
-					</div>
+					!!answer
+					? (<div>
+						<input type="radio"
+							id={answer}
+							name={question}
+							value={answers.indexOf(answer)}
+							onChange={handleInputChange}
+						/>
+						<label>{answer}</label>
+					</div>)
+					: null
 				))}
 			</div>
 		</div>
