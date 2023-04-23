@@ -14,7 +14,7 @@ function Survey({ results, setResults }) {
         setQuestion(Prompts[displayIndex])
     }, [displayIndex])
 
-    const handleSubmit = (userScore) => {
+    const handleNext = (userScore) => {
         const score = Prompts[displayIndex].type === "negative" ? userScore * -1 : userScore * 1
 
         setResults([
@@ -29,6 +29,10 @@ function Survey({ results, setResults }) {
         setDisplayIndex(displayIndex + 1)
     }
 
+    const handleSubmit = () => {
+        navigate('/solutions')
+    }
+
     console.log(results)
     return (
         <div className='mt-20'>
@@ -38,18 +42,18 @@ function Survey({ results, setResults }) {
                         <Questions 
                             question={question.question}
                             answers={question.answers}
-                            category={question.category}
+                            category={question.area}
                             setUserInput={setUserInput}
                         />
                     </> 
-                    : <>
-                        <div>Thank you for taking our survey!</div>
-                        <button onClick={() => navigate('/solutions')}>See results</button>
-                    </>
+                    : <div>Thank you for taking our survey!</div>
                 }
-                <div className='my-4 w-3/4 m-auto grid justify-items-stretch'>
-                    <button className="justify-self-center border-2 w-20 rounded-lg m-auto" onClick={() => {handleSubmit(userInput)}}>Submit</button>
-                </div>
+
+                {displayIndex < Prompts.length
+                    ? <button className="justify-items-center border-2 w-20 rounded-lg" onClick={() => {handleNext(userInput)}}>Next</button>
+                    : <button className="justify-items-center border-2 w-20 rounded-lg" onClick={() => {handleSubmit()}}>Submit</button>
+                }
+
             </div>
         </div>
     );
