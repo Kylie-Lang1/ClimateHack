@@ -47,7 +47,7 @@ function Survey({ results, setResults }) {
 
     console.log(results)
     return (
-        <div className='mt-20'>
+        <div className='mt-20 bg-white'>
             <div className='flex flex-col'>
                 {(displayIndex < Prompts.length && displayIndex >= 0) 
                     ? <>

@@ -16,12 +16,12 @@ const surveyPage = {
 	href: '/survey'
 }
 
-const solutionsPage = {
-	key: 'solutionsPage',
-	text: 'Solutions',
-	ariaLabel: 'Solutions page',
-	href: '/solutions'
-}
+// const solutionsPage = {
+// 	key: 'solutionsPage',
+// 	text: 'Solutions',
+// 	ariaLabel: 'Solutions page',
+// 	href: '/solutions'
+// }
 
 const actionsPage = {
 	key: 'actionsPage',
@@ -34,7 +34,7 @@ const Header = () => {
 	const [itemsFar] = useState([
 		homePage,
 		surveyPage,
-		solutionsPage,
+		// solutionsPage,
 		actionsPage,
 	]);
 
