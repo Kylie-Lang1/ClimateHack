@@ -59,13 +59,13 @@ function Survey({ results, setResults }) {
                             setUserInput={setUserInput}
                         />
                     </> 
-                    : <div>Thank you for taking our survey!</div>
+                    : <div className="grid justify-items-center">Thank you for taking our survey!</div>
                 }
                 <div className="grid justify-items-center">
                     {error && <div className="text-red-500">{error}</div>}
                     {displayIndex < Prompts.length
                         ? <button className="border-2 w-20 rounded-lg my-3" onClick={() => {handleNext(userInput)}}>Next</button>
-                        : <button className="border-2 w-20 rounded-lg my-3" onClick={() => {handleSubmit()}}>Submit</button>
+                        : <button className="border-2 w-auto px-3 py-1 rounded-lg my-3 shadow-lg" onClick={() => {handleSubmit()}}>Show my results</button>
                     }
                 </div>
             </div>
