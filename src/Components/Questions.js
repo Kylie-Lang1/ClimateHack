@@ -1,8 +1,10 @@
 export const Questions = ({ question, answers, category, setUserInput}) => {
 
 	const handleInputChange = (event) => {
-		console.log(event.target.value);
-		setUserInput(event.target.value);
+		setUserInput({
+			answer: event.target.name,
+			score: event.target.value
+		});
 	}
 
 	return (
@@ -14,12 +16,13 @@ export const Questions = ({ question, answers, category, setUserInput}) => {
 					!!answer
 					? (<div>
 						<input type="radio"
+							key={answer}
 							id={answer}
-							name={question}
+							name={answer}
 							value={answers.indexOf(answer)}
 							onChange={handleInputChange}
 						/>
-						<label>{answer}</label>
+						<label> {answer}</label>
 					</div>)
 					: null
 				))}
