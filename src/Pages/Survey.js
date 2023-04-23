@@ -1,23 +1,18 @@
-import Prompts from '../Data/Prompts';
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import { Questions } from '../Components/Questions';
+import Prompts from '../Data/Prompts';
 
-function Survey() {
+function Survey({ results, setResults }) {
     const [displayIndex, setDisplayIndex] = useState(0)
-    // const [questionDisplayed, setQuestionDisplayed] = useState(Prompts[0].question)
-    // const [answersDisplayed, setAnswersDisplayed] = useState(Prompts[0].answers)
     const [question, setQuestion] = useState(Prompts[0] )
     const [userInput, setUserInput] = useState()
-    const [results, setResults] = useState([])
+
+    const navigate = useNavigate()
 
     useEffect (() => {
-        // setQuestionDisplayed(Prompts[displayIndex].question)
-        // setAnswersDisplayed(Prompts[displayIndex].answers)
         setQuestion(Prompts[displayIndex])
-    }, [displayIndex //, questionDisplayed, answersDisplayed
-])
-
-    console.log(Prompts[displayIndex])
+    }, [displayIndex])
 
     const handleSubmit = (userScore) => {
         const score = Prompts[displayIndex].type === "negative" ? userScore * -1 : userScore * 1
@@ -26,8 +21,8 @@ function Survey() {
             ...results,
             {
                 id: Prompts[displayIndex].id,
-                area: Prompts[displayIndex].area,
                 category: Prompts[displayIndex].category,
+                area: Prompts[displayIndex].area,
                 score: score
             }
         ])
@@ -37,21 +32,25 @@ function Survey() {
     console.log(results)
     return (
         <div className='mt-20'>
-            {(displayIndex < Prompts.length && displayIndex >= 0) 
-                ? <>
-                    <Questions 
-                        question={question.question}
-                        answers={question.answers}
-                        category={question.area}
-                        setUserInput={setUserInput}
-                    />
-                </> 
-                : <>
-                    <div>Thank you for taking our survey!</div>
-                </>
-            }
-
-            <button className="justify-items-center border-2 w-20 rounded-lg" onClick={() => {handleSubmit(userInput)}}>Submit</button>
+            <div className='flex flex-col'>
+                {(displayIndex < Prompts.length && displayIndex >= 0) 
+                    ? <>
+                        <Questions 
+                            question={question.question}
+                            answers={question.answers}
+                            category={question.category}
+                            setUserInput={setUserInput}
+                        />
+                    </> 
+                    : <>
+                        <div>Thank you for taking our survey!</div>
+                        <button onClick={() => navigate('/solutions')}>See results</button>
+                    </>
+                }
+                <div className='my-4 w-3/4 m-auto grid justify-items-stretch'>
+                    <button className="justify-self-center border-2 w-20 rounded-lg m-auto" onClick={() => {handleSubmit(userInput)}}>Submit</button>
+                </div>
+            </div>
         </div>
     );
 }
