@@ -7,6 +7,8 @@ function Survey() {
     // const [questionDisplayed, setQuestionDisplayed] = useState(Prompts[0].question)
     // const [answersDisplayed, setAnswersDisplayed] = useState(Prompts[0].answers)
     const [question, setQuestion] = useState(Prompts[0] )
+    const [userInput, setUserInput] = useState()
+    const [results, setResults] = useState([])
 
     useEffect (() => {
         // setQuestionDisplayed(Prompts[displayIndex].question)
@@ -17,6 +19,22 @@ function Survey() {
 
     console.log(Prompts[displayIndex])
 
+    const handleSubmit = (userScore) => {
+        const score = Prompts[displayIndex].type === "negative" ? userScore * -1 : userScore * 1
+
+        setResults([
+            ...results,
+            {
+                id: Prompts[displayIndex].id,
+                area: Prompts[displayIndex].area,
+                category: Prompts[displayIndex].category,
+                score: score
+            }
+        ])
+        setDisplayIndex(displayIndex + 1)
+    }
+
+    console.log(results)
     return (
         <div className='mt-20'>
             {(displayIndex < Prompts.length && displayIndex >= 0) 
@@ -25,6 +43,7 @@ function Survey() {
                         question={question.question}
                         answers={question.answers}
                         category={question.area}
+                        setUserInput={setUserInput}
                     />
                 </> 
                 : <>
@@ -32,12 +51,7 @@ function Survey() {
                 </>
             }
 
-            <button
-                onClick={() => {setDisplayIndex(displayIndex + 1)}}
-                className="justify-items-center border-2 w-20 rounded-lg"
-            >
-                Submit
-            </button>
+            <button className="justify-items-center border-2 w-20 rounded-lg" onClick={() => {handleSubmit(userInput)}}>Submit</button>
         </div>
     );
 }
