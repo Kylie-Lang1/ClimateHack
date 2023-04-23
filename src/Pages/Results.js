@@ -1,5 +1,4 @@
-import { useNavigate } from 'react-router-dom';
-// import { Slider } from '../Components/Slider';
+import { useNavigate, Link } from 'react-router-dom';
 import { Slider } from '../Components/Slider';
 
 function Solutions({ results }) {
@@ -32,6 +31,9 @@ function Solutions({ results }) {
                             }
                         </tbody>
                     </table>
+                    <Link to="/actions" className='py-5'>
+                        <button className='my-5 bg-green-200 ml-20 border rounded-md px-5'>Find out how you can reduce your footprint!</button>
+                    </Link>
                 </>
                 : <div className="grid justify-items-center">
                     <div className="grid justify-items-center">No user results found.</div>

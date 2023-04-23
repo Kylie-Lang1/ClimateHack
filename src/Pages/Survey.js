@@ -42,7 +42,7 @@ function Survey({ results, setResults }) {
     }
 
     const handleSubmit = () => {
-        navigate('/solutions')
+        navigate('/results')
     }
 
     console.log(results)
