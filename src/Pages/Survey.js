@@ -15,7 +15,7 @@ function Survey() {
         setAnswersDisplayed(Prompts[displayIndex].answers)
     }, [displayIndex, questionDisplayed, answersDisplayed])
 
-    const handleSubmit = (userScore) => {
+    const handleNext = (userScore) => {
         const score = Prompts[displayIndex].type === "negative" ? userScore * -1 : userScore * 1
 
         setResults([
@@ -30,6 +30,10 @@ function Survey() {
         setDisplayIndex(displayIndex + 1)
     }
 
+    const handleSubmit = () => {
+
+    }
+
     console.log(results)
     return (
         <div>
@@ -37,12 +41,13 @@ function Survey() {
                 ? <>
                     <Questions question={questionDisplayed} answers={answersDisplayed} setUserInput={setUserInput}/>
                 </> 
-                : <>
-                    <div>Thank you for taking our survey!</div>
-                </>
+                : null
             }
 
-            <button onClick={() => {handleSubmit(userInput)}}>Submit</button>
+            {displayIndex < Prompts.length
+                ? <button onClick={() => {handleNext(userInput)}}>Next</button>
+                : <button onClick={() => {handleSubmit()}}>Submit</button>
+            }
         </div>
     );
 }
