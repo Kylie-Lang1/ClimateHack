@@ -15,6 +15,10 @@ function Survey({ results, setResults }) {
         setQuestion(Prompts[displayIndex])
     }, [displayIndex])
 
+    useEffect (() => {
+        setResults([])
+    }, [])
+
     const handleNext = (userInput) => {
         if (!userInput) {
             setError("Please select an answer")
