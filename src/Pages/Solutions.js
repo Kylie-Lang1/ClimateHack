@@ -1,22 +1,34 @@
 function Solutions({ results }) {
     return (
         <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Propmt</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                </tbody>
-            </table>
+            {
+                results.length ?
+                    <>    
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Propmt</th>
+                                    <th>Answer</th>
+                                    <th className="ml-3">Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    results.map((result) => {
+                                        return (
+                                            <tr key={result.id}>
+                                                <td>{result.question}</td>
+                                                <td className="text-center">{result.answer}</td>
+                                                <td className={result.score >= 0 ? 'text-green-600 text-right' : 'text-red-600 text-right'}>{result.score}</td>
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </tbody>
+                        </table>
+                    </>
+                        : null
+        }
         </div>
     );
 }
