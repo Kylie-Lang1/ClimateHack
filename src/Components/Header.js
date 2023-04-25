@@ -47,7 +47,6 @@ const Header = () => {
 			<div className='pr-2 float-right flex items-center justify-center text-xl overflow-hidden tracking-wide'>
 				{itemsFar.map((item) =>
 					<div key={item.key} className='mx-6 flex items-center justify-center hover:no-underline rtl:flex-row-reverse'>
-						{item.icon}
 						<Link key={item.key} to={item.href} aria-label={item.ariaLabel}>
 							<b>{item.text}</b>
 						</Link>
